@@ -495,11 +495,11 @@ template&lt;class T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Current node to traverse from. This is assumed to be the top most node </td></tr>
-    <tr><td class="paramname">(*callback)(int)</td><td>Pointer to callback function to pipe weights into for verification of balance </td></tr>
+    <tr><td class="paramname">callback</td><td>Pointer to callback function to pipe integer weights into as an <code>int</code> paramater for verification of balance </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>Your callback function must be defined/prototyped as <div class="fragment"><div class="line">func(<span class="keywordtype">int</span> param)</div></div><!-- fragment --> </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Your callback function must be defined/prototyped as <div class="fragment"><div class="line"><span class="keywordtype">void</span> func(<span class="keywordtype">int</span> param)</div></div><!-- fragment --> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>An example for using the callback function as verification of proper binary search tree balancing <div class="fragment"><div class="line"><a class="code" href="class_b_s_t.html">BST&lt;int&gt;</a> myBST(5,5);</div><div class="line"></div><div class="line">myBST.insert(myBST.getRoot(), 1,1);</div><div class="line">myBST.insert(myBST.getRoot(), 2,2);</div><div class="line">myBST.insert(myBST.getRoot(), 3,3);</div><div class="line">myBST.insert(myBST.getRoot(), 4,4);</div><div class="line">myBST.insert(myBST.getRoot(), 6,6);</div><div class="line">myBST.insert(myBST.getRoot(), 7,7);</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> print(<span class="keywordtype">int</span> weight) {</div><div class="line"> std::cout &lt;&lt; weight &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div><div class="line">}</div><div class="line"></div><div class="line">myBST.traverse(myBST.getRoot(), &amp;print);</div></div><!-- fragment -->  </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 

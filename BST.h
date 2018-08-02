@@ -110,10 +110,11 @@ Node<T>* BST<T>::search(Node<T> *root, T value) {
 
 /////////////////////////////////////////////////
 /// @param root Current node to traverse from. This is assumed to be the top most node
-/// @param (*callback)(int) Pointer to callback function to pipe weights into for verification of balance
+/// @param callback Pointer to callback function to pipe integer weights into
+/// as an `int` paramater for verification of balance
 /// @warning Your callback function must be defined/prototyped as
 /// @code
-/// func(int param)
+/// void func(int param)
 /// @endcode
 /// @note An example for using the callback function as verification of proper binary search tree balancing
 /// @code
