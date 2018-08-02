@@ -52,17 +52,18 @@ private:
 
 public:
   BST(int weight, T value) { this->root = new Node<T>(weight, value); }
-  Node<T>* search(Node<T> *root, T value); //!< Returns pointer to node with value
-  Node<T>* insert(Node<T>* root, int weight, T value); //!< Inserts a value auto-balancing a tree
-  void traverse(Node<T>* root, void (*callback)(int)); //!< Traverse to node based on weight
-  void deleteNode(Node<T> *currentNode, int weight); //!< Deletes a node and rebalances the tree
-  Node<T>* balance(); //!< Performs a manual balance of the tree
-  Node<T>* findMinimum(); //!< Finds the global minimum
-  Node<T>* findMaximum(); //!< Finds the global maximum
-  Node<T>* findMinimum(Node<T>* root); //!< Finds the minimum given a node
-  Node<T>* findMaximum(Node<T>* root); //!< Finds the maximum given a node
-  Node<T>* getRoot(); //!< Returns the root of the BST
-  bool isBalanced(Node<T>* root, int minWeight, int maxWeight); //!< Verify the BST is balanced
+  Node<T>* search(Node<T> *root, T value); ///< Returns pointer to node with value
+  Node<T>* getNode(Node<T>* root, int weight); ///< Returns pointer to node of given weight
+  Node<T>* insert(Node<T>* root, int weight, T value); ///< Inserts a value auto-balancing a tree
+  void traverse(Node<T>* root, void (*callback)(int)); ///< Traverse to node based on weight
+  void deleteNode(Node<T> *currentNode, int weight); ///< Deletes a node and rebalances the tree
+  Node<T>* balance(); ///< Performs a manual balance of the tree
+  Node<T>* findMinimum(); ///< Finds the global minimum
+  Node<T>* findMaximum(); ///< Finds the global maximum
+  Node<T>* findMinimum(Node<T>* root); ///< Finds the minimum given a node
+  Node<T>* findMaximum(Node<T>* root); ///< Finds the maximum given a node
+  Node<T>* getRoot(); ///< Returns the root of the BST
+  bool isBalanced(Node<T>* root, int minWeight, int maxWeight); ///< Verify the BST is balanced
 };
 
 /////////////////////////////////////////////////
@@ -73,13 +74,13 @@ public:
 /// the first root node of the BST
 /// @param weight Sets the weight of the new root node
 /// @param value Sets the value of the new root node
-/// @return void
+/// @return `void`
 
 /////////////////////////////////////////////////
 /// @brief Constructor used to create a node
 /// @param weight weight of the node
 /// @param value value of the node
-/// @return void*/
+/// @return `void`
 /////////////////////////////////////////////////
 
 template <class T>
@@ -91,11 +92,11 @@ Node<T>::Node(int weight, T value) {
 /////////////////////////////////////////////////
 /// @param root Current node to begin searching from
 /// @param value Value to search for
-/// @return Node<T>* Returns pointer to found node
+/// @return `Node<T>*` Returns pointer to found node
 /////////////////////////////////////////////////
 
 template <class T>
-Node<T>* BST<T>::search(Node<T> *root, T value) {
+Node<T>* BST<T>::search(Node<T>* root, T value) {
   if (value < this->findMinimum()->value || value > this->findMaximum()->value) {
     return root;
   }
@@ -106,6 +107,26 @@ Node<T>* BST<T>::search(Node<T> *root, T value) {
     return this->search(root->left, value);
   }
   return this->search(root->right, value);
+}
+
+/////////////////////////////////////////////////
+/// @param root Current node to begin traversing from
+/// @param weight Weight of node to fetch
+/// @return `Node<T>*` Pointer to node
+/////////////////////////////////////////////////
+
+template <class T>
+Node<T>* BST<T>::getNode(Node<T>* root, int weight) {
+  if (weight < this->findMinimum()->weight || weight > this->findMaximum()->weight) {
+    return root;
+  }
+  if(root->weight == weight) {
+    return root;
+  }
+  if(weight < root->weight) {
+    return this->getNode(root->left, weight);
+  }
+  return this->getNode(root->right, weight);
 }
 
 /////////////////////////////////////////////////
@@ -134,7 +155,7 @@ Node<T>* BST<T>::search(Node<T> *root, T value) {
 ///    myBST.traverse(myBST.getRoot(), &print);
 /// @endcode
 /// @endnote
-/// @return void
+/// @return `void`
 /////////////////////////////////////////////////
 
 template <class T>
@@ -150,7 +171,7 @@ void BST<T>::traverse(Node<T>* root, void (*callback)(int)) {
 /////////////////////////////////////////////////
 /// @param root Node to begin traversal from and insert the next corresponding weight
 /// @param value Value to insert
-/// @return Node<T>* Returns pointer to new node wih corresponding weight and value
+/// @return `Node<T>*` Returns pointer to new node wih corresponding weight and value
 /////////////////////////////////////////////////
 
 template <class T>
@@ -175,7 +196,7 @@ Node<T>* BST<T>::insert(Node<T>* root, int weight, T value) {
 /////////////////////////////////////////////////
 /// @param root Root node to begin traversal
 /// @param weight Weight of node to remove
-/// @return void
+/// @return `void`
 /////////////////////////////////////////////////
 
 template <class T>
@@ -222,7 +243,7 @@ void BST<T>::replace_node_in_parent(Node<T> *currentNode, Node<T> *newNode) {
 
 /////////////////////////////////////////////////
 /// @description Begins traversal at root node to find the smallest, minimum weight
-/// @return Node<T>* Returns pointer to minimum node
+/// @return `Node<T>*` Returns pointer to minimum node
 /////////////////////////////////////////////////
 
 template <class T>
@@ -236,7 +257,7 @@ Node<T>* BST<T>::findMinimum() {
 
 /////////////////////////////////////////////////
 /// @description Begins traversal at root node to find the biggest, maximum weight
-/// @return Node<T>* Returns pointer to maximum node
+/// @return `Node<T>*` Returns pointer to maximum node
 /////////////////////////////////////////////////
 
 template <class T>
@@ -250,7 +271,7 @@ Node<T>* BST<T>::findMaximum() {
 
 /////////////////////////////////////////////////
 /// @param root Root node to start traversal from to find minimum
-/// @return Node<T>* Returns pointer to minimum node
+/// @return `Node<T>*` Returns pointer to minimum node
 /////////////////////////////////////////////////
 
 template <class T>
@@ -264,7 +285,7 @@ Node<T>* BST<T>::findMinimum(Node<T>* root) {
 
 /////////////////////////////////////////////////
 /// @param root Root node to start traversal from to find maximum
-/// @return Node<T>* Returns pointer to maximum node
+/// @return `Node<T>*` Returns pointer to maximum node
 /////////////////////////////////////////////////
 
 template <class T>
@@ -280,7 +301,7 @@ Node<T>* BST<T>::findMaximum(Node<T>* root) {
 /// @param root Root node to begin traversal
 /// @param minWeight Minimum weight to check
 /// @param maxWeight Maximum weight to check
-/// @return bool For balanced or unbalanced
+/// @return `bool` For balanced or unbalanced
 /////////////////////////////////////////////////
 
 template <class T>
@@ -295,7 +316,7 @@ bool BST<T>::isBalanced(Node<T>* root, int minWeight, int maxWeight) {
 }
 
 /////////////////////////////////////////////////
-/// @return Node<T>* Returns root
+/// @return `Node<T>*` Returns root
 /////////////////////////////////////////////////
 
 template <class T>
