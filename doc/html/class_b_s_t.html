@@ -78,6 +78,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0867ae7800410da52e5a00b3348668b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#ac0867ae7800410da52e5a00b3348668b">search</a> (<a class="el" href="class_node.html">Node</a>&lt; T &gt; *root, T value)</td></tr>
 <tr class="memdesc:ac0867ae7800410da52e5a00b3348668b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to node with value.  <a href="#ac0867ae7800410da52e5a00b3348668b">More...</a><br /></td></tr>
 <tr class="separator:ac0867ae7800410da52e5a00b3348668b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84080cfc7bc3d8b7b094ffc9c4fcc0b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a84080cfc7bc3d8b7b094ffc9c4fcc0b9">getNode</a> (int weight)</td></tr>
+<tr class="memdesc:a84080cfc7bc3d8b7b094ffc9c4fcc0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to node of given weight.  <a href="#a84080cfc7bc3d8b7b094ffc9c4fcc0b9">More...</a><br /></td></tr>
+<tr class="separator:a84080cfc7bc3d8b7b094ffc9c4fcc0b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5e33e361314dcd5dd6c19e4edf6dba2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#ad5e33e361314dcd5dd6c19e4edf6dba2">insert</a> (<a class="el" href="class_node.html">Node</a>&lt; T &gt; *root, int weight, T value)</td></tr>
 <tr class="memdesc:ad5e33e361314dcd5dd6c19e4edf6dba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a value auto-balancing a tree.  <a href="#ad5e33e361314dcd5dd6c19e4edf6dba2">More...</a><br /></td></tr>
 <tr class="separator:ad5e33e361314dcd5dd6c19e4edf6dba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,7 +164,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>void</code> </dd></dl>
 
 </div>
 </div>
@@ -202,7 +205,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>void</code> </dd></dl>
 
 </div>
 </div>
@@ -224,7 +227,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Finds the global maximum. </p>
-<p>Begins traversal at root node to find the biggest, maximum weight </p><dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns pointer to maximum node </dd></dl>
+<p>Begins traversal at root node to find the biggest, maximum weight </p><dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns pointer to maximum node </dd></dl>
 
 </div>
 </div>
@@ -253,7 +256,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns pointer to maximum node </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns pointer to maximum node </dd></dl>
 
 </div>
 </div>
@@ -275,7 +278,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Finds the global minimum. </p>
-<p>Begins traversal at root node to find the smallest, minimum weight </p><dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns pointer to minimum node </dd></dl>
+<p>Begins traversal at root node to find the smallest, minimum weight </p><dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns pointer to minimum node </dd></dl>
 
 </div>
 </div>
@@ -304,7 +307,37 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns pointer to minimum node </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns pointer to minimum node </dd></dl>
+
+</div>
+</div>
+<a id="a84080cfc7bc3d8b7b094ffc9c4fcc0b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84080cfc7bc3d8b7b094ffc9c4fcc0b9">&#9670;&nbsp;</a></span>getNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_node.html">Node</a>&lt; T &gt; * <a class="el" href="class_b_s_t.html">BST</a>&lt; T &gt;::getNode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns pointer to node of given weight. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Current node to begin traversing from </td></tr>
+    <tr><td class="paramname">weight</td><td>Weight of node to fetch </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Pointer to node </dd></dl>
 
 </div>
 </div>
@@ -326,7 +359,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the root of the <a class="el" href="class_b_s_t.html">BST</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns root </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns root </dd></dl>
 
 </div>
 </div>
@@ -372,7 +405,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns pointer to new node wih corresponding weight and value </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns pointer to new node wih corresponding weight and value </dd></dl>
 
 </div>
 </div>
@@ -419,7 +452,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>bool For balanced or unbalanced </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>bool</code> For balanced or unbalanced </dd></dl>
 
 </div>
 </div>
@@ -459,7 +492,7 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Node&lt;T&gt;* Returns pointer to found node </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="class_node.html">Node</a>&lt;T&gt;*</code> Returns pointer to found node </dd></dl>
 
 </div>
 </div>
@@ -501,7 +534,7 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Your callback function must be defined/prototyped as <div class="fragment"><div class="line"><span class="keywordtype">void</span> func(<span class="keywordtype">int</span> param)</div></div><!-- fragment --> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>An example for using the callback function as verification of proper binary search tree balancing <div class="fragment"><div class="line"><a class="code" href="class_b_s_t.html">BST&lt;int&gt;</a> myBST(5,5);</div><div class="line"></div><div class="line">myBST.insert(myBST.getRoot(), 1,1);</div><div class="line">myBST.insert(myBST.getRoot(), 2,2);</div><div class="line">myBST.insert(myBST.getRoot(), 3,3);</div><div class="line">myBST.insert(myBST.getRoot(), 4,4);</div><div class="line">myBST.insert(myBST.getRoot(), 6,6);</div><div class="line">myBST.insert(myBST.getRoot(), 7,7);</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> print(<span class="keywordtype">int</span> weight) {</div><div class="line"> std::cout &lt;&lt; weight &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div><div class="line">}</div><div class="line"></div><div class="line">myBST.traverse(myBST.getRoot(), &amp;print);</div></div><!-- fragment -->  </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>void</code> </dd></dl>
 
 </div>
 </div>
