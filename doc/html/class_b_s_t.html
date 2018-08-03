@@ -78,9 +78,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0867ae7800410da52e5a00b3348668b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#ac0867ae7800410da52e5a00b3348668b">search</a> (<a class="el" href="class_node.html">Node</a>&lt; T &gt; *root, T value)</td></tr>
 <tr class="memdesc:ac0867ae7800410da52e5a00b3348668b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to node with value.  <a href="#ac0867ae7800410da52e5a00b3348668b">More...</a><br /></td></tr>
 <tr class="separator:ac0867ae7800410da52e5a00b3348668b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84080cfc7bc3d8b7b094ffc9c4fcc0b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a84080cfc7bc3d8b7b094ffc9c4fcc0b9">getNode</a> (int weight)</td></tr>
-<tr class="memdesc:a84080cfc7bc3d8b7b094ffc9c4fcc0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to node of given weight.  <a href="#a84080cfc7bc3d8b7b094ffc9c4fcc0b9">More...</a><br /></td></tr>
-<tr class="separator:a84080cfc7bc3d8b7b094ffc9c4fcc0b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0a1173c3f7b773bb4fbbe274e62191"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a3c0a1173c3f7b773bb4fbbe274e62191">getNode</a> (<a class="el" href="class_node.html">Node</a>&lt; T &gt; *root, int weight)</td></tr>
+<tr class="memdesc:a3c0a1173c3f7b773bb4fbbe274e62191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to node of given weight.  <a href="#a3c0a1173c3f7b773bb4fbbe274e62191">More...</a><br /></td></tr>
+<tr class="separator:a3c0a1173c3f7b773bb4fbbe274e62191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5e33e361314dcd5dd6c19e4edf6dba2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#ad5e33e361314dcd5dd6c19e4edf6dba2">insert</a> (<a class="el" href="class_node.html">Node</a>&lt; T &gt; *root, int weight, T value)</td></tr>
 <tr class="memdesc:ad5e33e361314dcd5dd6c19e4edf6dba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a value auto-balancing a tree.  <a href="#ad5e33e361314dcd5dd6c19e4edf6dba2">More...</a><br /></td></tr>
 <tr class="separator:ad5e33e361314dcd5dd6c19e4edf6dba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -311,8 +311,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a84080cfc7bc3d8b7b094ffc9c4fcc0b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84080cfc7bc3d8b7b094ffc9c4fcc0b9">&#9670;&nbsp;</a></span>getNode()</h2>
+<a id="a3c0a1173c3f7b773bb4fbbe274e62191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c0a1173c3f7b773bb4fbbe274e62191">&#9670;&nbsp;</a></span>getNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,9 +322,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_node.html">Node</a>&lt; T &gt; * <a class="el" href="class_b_s_t.html">BST</a>&lt; T &gt;::getNode </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>weight</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
