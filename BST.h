@@ -1,3 +1,6 @@
+#include <cstddef>
+#include <stdio.h>
+#include <exception>
 /////////////////////////////////////////////////
 /// @mainpage Welcome to the Autobalancing BST Library
 /// @description The purpose of this library is to
@@ -12,6 +15,20 @@
 #define __BST__
 
 /////////////////////////////////////////////////
+/// Out of Bounds Derived Structure
+/// Throws `const char * "Supplied weight is out of tree bounds"` if a requested operation cannot be completed given the weight
+/// @author Derick Vigne
+/// @copyright MIT License
+/////////////////////////////////////////////////
+
+struct OutOfBoundsException : public std::exception {
+  /// @brief Returns `const char *` for pretty printing
+  const char * what() const throw() {
+    return "Supplied weight out of tree bounds";
+  }
+};
+
+/////////////////////////////////////////////////
 /// Node Object Structure
 /// Used to create nodes that get autobalanced by the BST class
 /// @author Derick Vigne
@@ -21,9 +38,9 @@
 template <class T>
 class Node {
 public:
-  int weight; //!< Weight of the node
-  T value; //!< Value of the the node
-  Node<T> *left, *right, *parent;
+  int weight = 0; //!< Weight of the node
+  T value = 0; //!< Value of the the node
+  Node<T> *left, *right, *parent = NULL;
 
 /////////////////////////////////////////////////
 /// @var Node<T> *left
@@ -49,6 +66,7 @@ class BST {
 private:
   Node<T>* root; // Root node created when the BST() constructor is executed
   void replace_node_in_parent(Node<T> *currentNode, Node<T> *newNode);
+  bool weightInbounds(Node<T>* root, int weight); ///< Check if supplised weight is in bounds
 
 public:
   BST(int weight, T value) { this->root = new Node<T>(weight, value); }
@@ -111,14 +129,24 @@ Node<T>* BST<T>::search(Node<T>* root, T value) {
 
 /////////////////////////////////////////////////
 /// @param root Current node to begin traversing from
+/// @param weight Weight to check
+/// @return `bool`
+/////////////////////////////////////////////////
+template <class T>
+bool BST<T>::weightInbounds(Node<T>* root, int weight) {
+  return weight >= findMinimum(root)->weight && weight <= findMaximum(root)->weight;
+}
+
+/////////////////////////////////////////////////
+/// @param root Current node to begin traversing from
 /// @param weight Weight of node to fetch
 /// @return `Node<T>*` Pointer to node
 /////////////////////////////////////////////////
 
 template <class T>
 Node<T>* BST<T>::getNode(Node<T>* root, int weight) {
-  if (weight < this->findMinimum()->weight || weight > this->findMaximum()->weight) {
-    return root;
+  if (!weightInbounds(root, weight)) {
+    throw OutOfBoundsException();
   }
   if(root->weight == weight) {
     return root;
@@ -201,29 +229,32 @@ Node<T>* BST<T>::insert(Node<T>* root, int weight, T value) {
 
 template <class T>
 void BST<T>::deleteNode(Node<T> *root, int weight) {
- if (weight < root->weight) {
+  if(!weightInbounds(root, weight)) {
+    throw OutOfBoundsException();
+  }
+  if (weight < root->weight) {
    deleteNode(root->left, weight);
    return;
- }
- if (weight > root->weight) {
+  }
+  if (weight > root->weight) {
    deleteNode(root->right, weight);
    return;
- }
- if (root->left && root->right) {
+  }
+  if (root->left && root->right) {
    Node<T>* successor = findMinimum(root->right);
    root->weight = successor->weight;
    root->value = successor->value;
    deleteNode(successor, successor->weight);
- }
- else if(root->left) {
+  }
+  else if(root->left) {
    replace_node_in_parent(root, root->left);
- }
- else if(root->right) {
+  }
+  else if(root->right) {
    replace_node_in_parent(root, root->right);
- }
- else {
+  }
+  else {
    replace_node_in_parent(root, NULL);
- }
+  }
 }
 
 template <class T>
