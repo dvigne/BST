@@ -240,7 +240,7 @@ dl.reflist {
 /*********************************************/
 div.line {
 	background: transparent;
-	color: inherit;
+	color: #d7d7d7;
 }
 
 div.line a {
@@ -278,19 +278,19 @@ span.charliteral {
 	color: #e7db74;
 }
 
-span.vhdldigit { 
+span.vhdldigit {
 	color: #ff00ff;
 }
 
-span.vhdlchar { 
+span.vhdlchar {
 	color: #000000;
 }
 
-span.vhdlkeyword { 
+span.vhdlkeyword {
 	color: #700070;
 }
 
-span.vhdllogic { 
+span.vhdllogic {
 	color: #ff0000;
 }
 
@@ -309,6 +309,10 @@ span.lineno a {
 .memTemplItemLeft, .memTemplItemRight, .memTemplParams {
 	background: #32363d;
 	color: inherit;
+}
+
+.memtemplate {
+	color: #B4CCF9;
 }
 
 .memSeparator {
@@ -399,7 +403,7 @@ td.memItemLeft, td.memItemRight {
 ::-webkit-scrollbar-track {
 	border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
 	background: #234567;
@@ -408,7 +412,7 @@ td.memItemLeft, td.memItemRight {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #32363d; 
+	background: #32363d;
 }
 
 /*********************************************/
